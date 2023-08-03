@@ -9,6 +9,19 @@ function getbandas(req, res) {
     });
 }
 
+function postbanda(req, res) {
+    let data = req.body
+    console.log(data)
+
+    if(data.nome) {
+        connection.connect(function(err) {
+            connection.query("insert into bandas (nome) values ('" + data.nome + "')")
+            res.send('Sucesso ao cadastrar banda')
+        })
+    }
+}
+
 module.exports = {
-    getbandas
+    getbandas,
+    postbanda
 };

@@ -1,7 +1,7 @@
 // routes.js
 const express = require('express');
 const artistasConsulta = require('./artistasQuerys');
-const bandasConsulta = require('./bandasQuerys')
+const bandasQuerys= require('./bandasQuerys')
 const router = express.Router();
 
 router.get('/artistas', (req, res) => {
@@ -17,7 +17,11 @@ router.get('/artistas', (req, res) => {
 });
 
 router.get('/bandas',(req, res) => {
-  bandasConsulta.getbandas(req, res);
+  bandasQuerys.getbandas(req, res);
+})
+
+router.post('/bandas',(req, res) => {
+  bandasQuerys.postbanda(req, res);
 })
 
 module.exports = router;
